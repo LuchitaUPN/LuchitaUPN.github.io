@@ -10,7 +10,7 @@
         body { font-family: 'Poppins', sans-serif; background-color: #f5f7fa; }
         .gradient-bg { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
         .shadow-custom { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        .number-selector { width: 60px; text-align: center; }
+        .number-selector { width: 80px; text-align: center; } /* Un poco más ancho */
         .number-selector:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); }
     </style>
 </head>
@@ -20,11 +20,7 @@
             <div class="text-center mb-8">
                 <div class="flex justify-center mb-4">
                     <div class="w-24 h-24 rounded-full gradient-bg flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" class="text-white">
-                            <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/>
-                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                            <path stroke="currentColor" stroke-width="1.5" d="M7 12h10M12 7v10"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" class="text-white"><circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path stroke="currentColor" stroke-width="1.5" d="M7 12h10M12 7v10"/></svg>
                     </div>
                 </div>
                 <h1 class="text-3xl font-bold text-gray-800 mb-2">Sistema de Pedidos</h1>
@@ -59,4 +55,204 @@
                 </div>
                 
                 <div>
-                    <label for="password"
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                
+                <button id="login-btn" class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-medium text-lg hover:opacity-90 transition-all">Ingresar</button>
+                <div id="login-error" class="text-red-500 text-center hidden">Contraseña incorrecta.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="order-section" class="hidden min-h-screen bg-gray-50 pb-12">
+        <header class="gradient-bg text-white py-4 px-6 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold" id="branch-name">Sucursal</h1>
+                </div>
+                <button id="logout-btn" class="bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition-all">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8">
+            <div class="bg-white rounded-xl shadow-custom p-6 mb-8">
+                <div class="flex flex-wrap items-center justify-between mb-6">
+                    <h2 class="text-xl font-semibold text-gray-800">Realizar Pedido de Insumos</h2>
+                    <div class="flex space-x-2 items-center">
+                        <label for="order-date" class="text-sm font-medium text-gray-700">Fecha del Pedido:</label>
+                        <input type="date" id="order-date" class="border border-gray-300 rounded-md px-3 py-1">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Insumo</th>
+                                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Extracto</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="extracto"></select></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Café P/Beb</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="cafe"></select></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Fresa</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="fresa"></select></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Longaniza</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="longaniza"></select></td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Masas</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="masas"></select></td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Queso</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="queso"></select></td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Hielo</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="hielo"></select></td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-800">Bultos Sucursal</td>
+                                <td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="bultos"></select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-4 justify-end">
+                    <button id="clear-btn" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-all">Limpiar</button>
+                    <button id="save-btn" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all">Guardar Pedido</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CONFIGURACIÓN ---
+            const passwords = {
+                almacen: 'almacen55', sistemas: 'sistemas123', 'cafeteria-centro': 'CAFETERIA', creperia: 'CREPERIA',
+                'santo-santiago': 'SANTO', portal: 'PORTAL', 'obregon-cafeteria': 'OBREGON', 'obregon-tienda': 'OBREGON',
+                'gran-parada': 'GRAN', presidencia: 'PRESIDENCIA', paris: 'PARIS', estocolmo: 'ESTOCOLMO',
+                soriana: 'SORIANA', cuba: 'CUBA', 'drive-thru': 'DRIVE', 'paseo-tienda': 'PASEO',
+                'paseo-cafeteria': 'PASEO', pronosticos: 'PRONOSTICOS'
+            };
+
+            // --- ELEMENTOS DEL DOM ---
+            const loginSection = document.getElementById('login-section');
+            const orderSection = document.getElementById('order-section');
+            const branchSelect = document.getElementById('branch-select');
+            const passwordInput = document.getElementById('password');
+            const loginBtn = document.getElementById('login-btn');
+            const loginError = document.getElementById('login-error');
+            const branchNameDisplay = document.getElementById('branch-name');
+            const logoutBtn = document.getElementById('logout-btn');
+            const orderDateInput = document.getElementById('order-date');
+            const clearBtn = document.getElementById('clear-btn');
+            const saveBtn = document.getElementById('save-btn');
+            const numberSelectors = document.querySelectorAll('.number-selector');
+
+            // --- LÓGICA DE LA APLICACIÓN ---
+
+            // ✅ FUNCIÓN CORREGIDA: Popula los selectores sin romper los eventos.
+            const populateSelectors = () => {
+                let optionsHTML = '';
+                for (let i = 0; i <= 20; i++) {
+                    optionsHTML += `<option value="${i}">${i}</option>`;
+                }
+                numberSelectors.forEach(selector => {
+                    selector.innerHTML = optionsHTML;
+                });
+            };
+            
+            const setDateInputs = () => {
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                orderDateInput.value = `${yyyy}-${mm}-${dd}`;
+            };
+
+            const login = () => {
+                const selectedBranch = branchSelect.value;
+                if (passwords[selectedBranch] === passwordInput.value) {
+                    branchNameDisplay.textContent = branchSelect.options[branchSelect.selectedIndex].textContent;
+                    loginSection.classList.add('hidden');
+                    orderSection.classList.remove('hidden');
+                    loginError.classList.add('hidden');
+                    passwordInput.value = '';
+                } else {
+                    loginError.classList.remove('hidden');
+                }
+            };
+
+            const logout = () => {
+                loginSection.classList.remove('hidden');
+                orderSection.classList.add('hidden');
+            };
+
+            const clearOrderForm = () => {
+                numberSelectors.forEach(selector => selector.value = 0);
+            };
+            
+            const saveOrderToSheet = () => {
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFNbXPa4SCJgUQVe0_85eVmDHPoZCXY4VKuQlJeLseLpsW4HbDxpxTBng1dIplfBRP/exec';
+
+                saveBtn.textContent = 'Guardando...';
+                saveBtn.disabled = true;
+
+                const items = {};
+                numberSelectors.forEach(selector => {
+                    items[selector.dataset.item] = parseInt(selector.value, 10);
+                });
+
+                const payload = {
+                    branch: branchSelect.options[branchSelect.selectedIndex].textContent,
+                    orderDate: orderDateInput.value,
+                    items: items
+                };
+
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(payload),
+                })
+                .then(() => {
+                    alert('¡Pedido guardado exitosamente en la nube! 🎉');
+                    clearOrderForm();
+                })
+                .catch(error => {
+                    alert('Error de conexión. No se pudo contactar al servidor.');
+                    console.error('Error en fetch:', error);
+                })
+                .finally(() => {
+                    saveBtn.textContent = 'Guardar Pedido';
+                    saveBtn.disabled = false;
+                });
+            };
+
+            // --- ASIGNACIÓN DE EVENTOS ---
+            loginBtn.addEventListener('click', login);
+            passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
+            logoutBtn.addEventListener('click', logout);
+            clearBtn.addEventListener('click', clearOrderForm);
+            saveBtn.addEventListener('click', saveOrderToSheet);
+            
+            // --- INICIALIZACIÓN ---
+            setDateInputs();
+            populateSelectors(); // Llamar a la función corregida
+        });
+    </script>
+</body>
+</html>
