@@ -22,7 +22,7 @@
             <div class="text-center mb-8">
                 <div class="flex justify-center mb-4">
                     <div class="w-24 h-24 rounded-full gradient-bg flex items-center justify-center">
-                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586a1 1 0 01-.293.707l-1.414 1.414a1 1 0 001.414 1.414l1.414-1.414A1 1 0 016 13.586V8a4 4 0 014-4h4a4 4 0 014 4v2.586a1 1 0 01.293.707l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414A1 1 0 0118 10.586V8a6 6 0 00-6-6h-2z"></path><path d="M10 18a3 3 0 01-3-3V8a1 1 0 011-1h4a1 1 0 011 1v7a3 3 0 01-3 3h-2z"></path></svg>
                     </div>
                 </div>
                 <h1 class="text-3xl font-bold text-gray-800 mb-2">Sistema de Pedidos</h1>
@@ -82,12 +82,7 @@
                 </div>
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Insumo</th>
-                                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Cantidad</th>
-                            </tr>
-                        </thead>
+                        <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Insumo</th><th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Cantidad</th></tr></thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                            <tr><td class="px-6 py-4 text-sm font-medium text-gray-800">Extracto</td><td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="extracto"></select></td></tr>
                            <tr><td class="px-6 py-4 text-sm font-medium text-gray-800">Café P/Beb</td><td class="px-6 py-4 text-center"><select class="number-selector border rounded-md p-2" data-item="cafe"></select></td></tr>
@@ -124,15 +119,7 @@
                         <table id="all-orders-table" class="min-w-full divide-y divide-gray-200">
                              <thead>
                                 <tr>
-                                    <th class="px-2 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">Sucursal</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Extracto</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Café</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Fresa</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Longaniza</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Masas</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Queso</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Hielo</th>
-                                    <th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Bultos</th>
+                                    <th class="px-2 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">Sucursal</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Extracto</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Café</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Fresa</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Longaniza</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Masas</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Queso</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Hielo</th><th class="px-2 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">Bultos</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200" id="all-orders-body"></tbody>
@@ -149,7 +136,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // --- CONFIGURACIÓN Y CONSTANTES ---
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFNbXPa4SCJgUQVe0_85eVmDHPoZCXY4VKuQlJeLseLpsW4HbDxpxTBng1dIplfBRP/exec';
     const passwords = {
         almacen: 'almacen55', sistemas: 'sistemas123', 'cafeteria-centro': 'CAFETERIA', creperia: 'CREPERIA',
@@ -158,8 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         soriana: 'SORIANA', cuba: 'CUBA', 'drive-thru': 'DRIVE', 'paseo-tienda': 'PASEO',
         'paseo-cafeteria': 'PASEO', pronosticos: 'PRONOSTICOS'
     };
-
-    // --- ELEMENTOS DEL DOM ---
     const loginSection = document.getElementById('login-section');
     const orderSection = document.getElementById('order-section');
     const branchSelect = document.getElementById('branch-select');
@@ -173,14 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveBtn = document.getElementById('save-btn');
     const reviewOrderBtn = document.getElementById('review-order-btn');
     const numberSelectors = document.querySelectorAll('.number-selector');
-    
-    // Contraseñas
     const showPasswordsBtn = document.getElementById('show-passwords-btn');
     const passwordModal = document.getElementById('password-modal');
     const closePasswordModalBtn = document.getElementById('close-password-modal-btn');
     const passwordList = document.getElementById('password-list');
-
-    // Admin
     const adminSection = document.getElementById('admin-section');
     const superAdminBadge = document.getElementById('super-admin-badge');
     const adminDateInput = document.getElementById('admin-date');
@@ -191,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadPdfBtn = document.getElementById('download-pdf-btn');
     let fetchedOrders = [];
 
-    // --- FUNCIONES DE INICIALIZACIÓN ---
     const populateSelectors = () => {
         let optionsHTML = '';
         for (let i = 0; i <= 30; i++) { optionsHTML += `<option value="${i}">${i}</option>`; }
@@ -204,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
         adminDateInput.value = today;
     };
 
-    // --- FUNCIONES PRINCIPALES ---
     const login = () => {
         const selectedBranch = branchSelect.value;
         if (passwords[selectedBranch] === passwordInput.value) {
@@ -213,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
             orderSection.classList.remove('hidden');
             loginError.classList.add('hidden');
             passwordInput.value = '';
-            // Mostrar panel de admin si corresponde
             if (selectedBranch === 'almacen' || selectedBranch === 'sistemas') {
                 adminSection.classList.remove('hidden');
                 superAdminBadge.classList.remove('hidden');
@@ -226,35 +203,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const logout = () => {
-        loginSection.classList.remove('hidden');
-        orderSection.classList.add('hidden');
-    };
-
-    const clearOrderForm = () => {
-        numberSelectors.forEach(selector => selector.value = 0);
-    };
+    const logout = () => { location.reload(); };
+    const clearOrderForm = () => { numberSelectors.forEach(selector => selector.value = 0); };
     
     const saveOrderToSheet = () => {
         saveBtn.textContent = 'Guardando...';
         saveBtn.disabled = true;
         const items = {};
         numberSelectors.forEach(selector => { items[selector.dataset.item] = parseInt(selector.value, 10); });
-        const payload = {
-            branch: branchNameDisplay.textContent,
-            orderDate: orderDateInput.value,
-            items: items
-        };
+        const payload = { branch: branchNameDisplay.textContent, orderDate: orderDateInput.value, items: items };
         fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
-        .then(() => {
-            alert('¡Pedido guardado exitosamente en la nube! 🎉');
-            clearOrderForm();
-        })
+        .then(() => { alert('¡Pedido guardado exitosamente en la nube! 🎉'); clearOrderForm(); })
         .catch(error => alert('Error de conexión.'))
-        .finally(() => {
-            saveBtn.textContent = 'Guardar Pedido';
-            saveBtn.disabled = false;
-        });
+        .finally(() => { saveBtn.textContent = 'Guardar Pedido'; saveBtn.disabled = false; });
     };
 
     const reviewMyOrder = () => {
@@ -265,57 +226,78 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`${SCRIPT_URL}?date=${date}&branch=${encodeURIComponent(branchName)}`)
         .then(response => response.json())
         .then(data => {
+            if (data.error) { throw new Error(data.error); }
             if (data.length > 0) {
-                const lastOrder = data[data.length - 1]; // Obtener el último pedido del día
-                let orderDetails = `Último pedido para ${lastOrder[2]} el ${lastOrder[1]}:\n\n`;
-                orderDetails += `- Extracto: ${lastOrder[3]}\n`;
-                orderDetails += `- Café: ${lastOrder[4]}\n`;
-                orderDetails += `- Fresa: ${lastOrder[5]}\n`;
-                orderDetails += `- Longaniza: ${lastOrder[6]}\n`;
-                orderDetails += `- Masas: ${lastOrder[7]}\n`;
-                orderDetails += `- Queso: ${lastOrder[8]}\n`;
-                orderDetails += `- Hielo: ${lastOrder[9]}\n`;
-                orderDetails += `- Bultos: ${lastOrder[10]}\n`;
+                const lastOrder = data[data.length - 1];
+                let orderDetails = `Último pedido para ${lastOrder[2]} el ${date}:\n\n- Extracto: ${lastOrder[3]}\n- Café: ${lastOrder[4]}\n- Fresa: ${lastOrder[5]}\n- Longaniza: ${lastOrder[6]}\n- Masas: ${lastOrder[7]}\n- Queso: ${lastOrder[8]}\n- Hielo: ${lastOrder[9]}\n- Bultos: ${lastOrder[10]}`;
                 alert(orderDetails);
             } else {
                 alert(`No se encontraron pedidos para ${branchName} en esta fecha.`);
             }
         })
-        .catch(error => alert('Error al revisar el pedido.'))
-        .finally(() => {
-            reviewOrderBtn.textContent = 'Revisar mi Pedido';
-            reviewOrderBtn.disabled = false;
-        });
+        .catch(error => { alert('Error al revisar el pedido. Revisa la consola (F12) para más detalles.'); console.error(error); })
+        .finally(() => { reviewOrderBtn.textContent = 'Revisar mi Pedido'; reviewOrderBtn.disabled = false; });
     };
     
     const showPasswordList = () => {
-        passwordList.innerHTML = ''; // Limpiar lista
+        passwordList.innerHTML = '';
         const adminUsers = ['almacen', 'sistemas'];
-        // Generar filas de la tabla
         for (const branchKey in passwords) {
             if (!adminUsers.includes(branchKey)) {
                 const optionText = document.querySelector(`#branch-select option[value="${branchKey}"]`).textContent;
                 const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="py-2 px-4 whitespace-nowrap text-sm font-medium text-gray-900">${optionText}</td>
-                    <td class="py-2 px-4 whitespace-nowrap text-sm text-gray-600">${passwords[branchKey]}</td>
-                `;
+                row.innerHTML = `<td class="py-2 px-4 text-sm font-medium text-gray-900">${optionText}</td><td class="py-2 px-4 text-sm text-gray-600">${passwords[branchKey]}</td>`;
                 passwordList.appendChild(row);
             }
         }
         passwordModal.classList.remove('hidden');
     };
 
-    // --- FUNCIONES DE ADMIN ---
     const viewOrdersByDate = () => {
-        // ... (Implementación de la función viewOrdersByDate, no cambia) ...
+        const selectedDate = adminDateInput.value;
+        if (!selectedDate) { alert('Por favor, selecciona una fecha.'); return; }
+        viewOrdersBtn.textContent = "Buscando...";
+        viewOrdersBtn.disabled = true;
+        fetch(`${SCRIPT_URL}?date=${selectedDate}`)
+        .then(response => response.json())
+        .then(data => {
+            fetchedOrders = data;
+            allOrdersBody.innerHTML = '';
+            if (data.error || data.length === 0) {
+                noOrdersMessage.classList.remove('hidden');
+                allOrdersContainer.classList.add('hidden');
+                if(data.error) { console.error("Error desde el script:", data.error); }
+            } else {
+                noOrdersMessage.classList.add('hidden');
+                allOrdersContainer.classList.remove('hidden');
+                const totals = { 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0 };
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td class="px-2 py-4 text-sm font-medium text-gray-800">${row[2]}</td><td class="px-2 py-4 text-center text-sm">${row[3]}</td><td class="px-2 py-4 text-center text-sm">${row[4]}</td><td class="px-2 py-4 text-center text-sm">${row[5]}</td><td class="px-2 py-4 text-center text-sm">${row[6]}</td><td class="px-2 py-4 text-center text-sm">${row[7]}</td><td class="px-2 py-4 text-center text-sm">${row[8]}</td><td class="px-2 py-4 text-center text-sm">${row[9]}</td><td class="px-2 py-4 text-center text-sm">${row[10]}</td>`;
+                    allOrdersBody.appendChild(tr);
+                    for (let i = 3; i <= 10; i++) { totals[i] += Number(row[i] || 0); }
+                });
+                const totalRow = document.createElement('tr');
+                totalRow.className = 'font-bold bg-blue-50';
+                totalRow.innerHTML = `<td class="px-2 py-4 text-sm text-blue-800">TOTAL</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[3]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[4]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[5]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[6]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[7]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[8]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[9]}</td><td class="px-2 py-4 text-center text-sm text-blue-800">${totals[10]}</td>`;
+                allOrdersBody.appendChild(totalRow);
+            }
+        })
+        .catch(error => { alert('Error de conexión. Revisa la consola (F12).'); console.error('Error de fetch:', error); })
+        .finally(() => { viewOrdersBtn.textContent = "Ver Pedidos"; viewOrdersBtn.disabled = false; });
     };
 
     const generatePDF = () => {
-        // ... (Implementación de la función generatePDF, no cambia) ...
+        if (fetchedOrders.length === 0) { alert("No hay datos para generar el PDF."); return; }
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: "landscape" });
+        doc.text(`Reporte de Pedidos - ${adminDateInput.value}`, 14, 20);
+        const head = [['Sucursal', 'Extracto', 'Café', 'Fresa', 'Longaniza', 'Masas', 'Queso', 'Hielo', 'Bultos']];
+        const body = fetchedOrders.map(row => [row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]]);
+        doc.autoTable({ head, body, startY: 25 });
+        doc.save(`Reporte_Pedidos_${adminDateInput.value}.pdf`);
     };
 
-    // --- ASIGNACIÓN DE EVENTOS ---
     loginBtn.addEventListener('click', login);
     passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
     logoutBtn.addEventListener('click', logout);
@@ -327,7 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
     viewOrdersBtn.addEventListener('click', viewOrdersByDate);
     downloadPdfBtn.addEventListener('click', generatePDF);
     
-    // --- INICIALIZACIÓN ---
     setDateInputs();
     populateSelectors();
 });
