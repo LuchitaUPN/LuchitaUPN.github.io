@@ -136,7 +136,9 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFNbXPa4SCJgUQVe0_85eVmDHPoZCXY4VKuQlJeLseLpsW4HbDxpxTBng1dIplfBRP/exec';
+    // URL actualizada con la que proporcionaste
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyiGSeZP9dP1Uv4ShT5Y3BhMP92y9BLu0SNbFEUe6iXjPwaqAhP9bI653FSi-lNsIAt/exec';
+    
     const passwords = {
         almacen: 'almacen55', sistemas: 'sistemas123', 'cafeteria-centro': 'CAFETERIA', creperia: 'CREPERIA',
         'santo-santiago': 'SANTO', portal: 'PORTAL', 'obregon-cafeteria': 'OBREGON', 'obregon-tienda': 'OBREGON',
@@ -144,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         soriana: 'SORIANA', cuba: 'CUBA', 'drive-thru': 'DRIVE', 'paseo-tienda': 'PASEO',
         'paseo-cafeteria': 'PASEO', pronosticos: 'PRONOSTICOS'
     };
+
+    // --- Selectores del DOM ---
     const loginSection = document.getElementById('login-section');
     const orderSection = document.getElementById('order-section');
     const branchSelect = document.getElementById('branch-select');
@@ -171,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadPdfBtn = document.getElementById('download-pdf-btn');
     let fetchedOrders = [];
 
+    // --- Funciones de Inicialización ---
     const populateSelectors = () => {
         let optionsHTML = '';
         for (let i = 0; i <= 30; i++) { optionsHTML += `<option value="${i}">${i}</option>`; }
@@ -183,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminDateInput.value = today;
     };
 
+    // --- Funciones Principales ---
     const login = () => {
         const selectedBranch = branchSelect.value;
         if (passwords[selectedBranch] === passwordInput.value) {
@@ -298,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.save(`Reporte_Pedidos_${adminDateInput.value}.pdf`);
     };
 
+    // --- Asignación de Eventos ---
     loginBtn.addEventListener('click', login);
     passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
     logoutBtn.addEventListener('click', logout);
@@ -309,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     viewOrdersBtn.addEventListener('click', viewOrdersByDate);
     downloadPdfBtn.addEventListener('click', generatePDF);
     
+    // --- Inicialización ---
     setDateInputs();
     populateSelectors();
 });
